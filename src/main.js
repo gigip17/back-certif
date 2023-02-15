@@ -1,6 +1,7 @@
 const express = require('express')
 const { Pool } = require('./pool')
 const cors = require('cors')
+const { tasksRouter } = require('./tasks/tasks.routes')
 
 require('dotenv').config()
 
@@ -11,6 +12,7 @@ app.use(cors())
 app.use((err, req, res, next) => {
   res.status(500).send({ error: err.message, status: 500 })
 })
+app.use('/tasks', tasksRouter)
 
 app.get('/', (req, res) => {
   res.send('Salut')
