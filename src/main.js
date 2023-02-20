@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
   res.send('Salut')
 })
 
-const PORT = 3000
+
 
 function start() {
   Pool.connect({
